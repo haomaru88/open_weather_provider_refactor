@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 
 import '../constants/constants.dart';
@@ -23,7 +22,7 @@ class WeatherApiServices {
       queryParameters: {
         'q': city,
         'limit': kLimit,
-        'appid': dotenv.env['APPID'],
+        'appid': '1e4a2caf6ac16dec515928e36bfa9729',
       },
     );
 
@@ -57,7 +56,7 @@ class WeatherApiServices {
         'lat': '${directGeocoding.lat}',
         'lon': '${directGeocoding.lon}',
         'units': kUnit,
-        'appid': dotenv.env['APPID'],
+        'appid': '1e4a2caf6ac16dec515928e36bfa9729',
       },
     );
 

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
 
@@ -9,7 +8,7 @@ import 'repositories/weather_repository.dart';
 import 'services/weather_api_services.dart';
 
 void main() async {
-  await dotenv.load(fileName: '.env');
+  // await dotenv.load(fileName: '.env');
   runApp(const MyApp());
 }
 
@@ -47,9 +46,7 @@ class MyApp extends StatelessWidget {
       builder: (context, _) => MaterialApp(
         title: 'Weather App',
         debugShowCheckedModeBanner: false,
-        theme: context.watch<ThemeProvider>().state.appTheme == AppTheme.light
-            ? ThemeData.light()
-            : ThemeData.dark(),
+        theme: context.watch<ThemeProvider>().state.appTheme == AppTheme.light ? ThemeData.light() : ThemeData.dark(),
         home: const HomePage(),
       ),
     );

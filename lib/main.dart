@@ -35,12 +35,7 @@ class MyApp extends StatelessWidget {
           create: (context) => TempSettingsProvider(),
         ),
         ProxyProvider<WeatherProvider, ThemeProvider>(
-          update: (
-            BuildContext context,
-            WeatherProvider weatherProvider,
-            _,
-          ) =>
-              ThemeProvider(wp: weatherProvider),
+          update: (BuildContext context, WeatherProvider weatherProvider, _) => ThemeProvider(wp: weatherProvider),
         ),
       ],
       builder: (context, _) => MaterialApp(

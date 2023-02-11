@@ -44,10 +44,10 @@ class _HomePageState extends State<HomePage> {
     final tempUnit = context.watch<TempSettingsProvider>().state.tempUnit;
 
     if (tempUnit == TempUnit.fahrenheit) {
-      return ((temperature * 9 / 5) + 32).toStringAsFixed(2) + '℉';
+      return ((temperature * 9 / 5) + 32).toStringAsFixed(1) + '℉';
     }
 
-    return temperature.toStringAsFixed(2) + '℃';
+    return temperature.toStringAsFixed(1) + '℃';
   }
 
   Widget _showWeather() {
@@ -138,13 +138,17 @@ class _HomePageState extends State<HomePage> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            const Spacer(),
-            showIcon(state.weather.icon),
+            // const Spacer(),
             Expanded(
-              flex: 3,
+              flex: 8,
+              child: showIcon(state.weather.icon),
+            ),
+            // formatText(state.weather.description),
+            Expanded(
+              flex: 7,
               child: formatText(state.weather.description),
             ),
-            const Spacer(),
+            // const Spacer(),
           ],
         ),
       ],
@@ -152,11 +156,14 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget showIcon(String icon) {
-    return FadeInImage.assetNetwork(
-      placeholder: 'assets/images/loading.gif',
-      image: 'http://$kIconHost/img/wn/$icon@4x.png',
-      width: 96,
-      height: 96,
+    return Container(
+      alignment: Alignment.centerRight,
+      child: FadeInImage.assetNetwork(
+        placeholder: 'assets/images/loading.gif',
+        image: 'http://$kIconHost/img/wn/$icon@4x.png',
+        width: 196,
+        height: 196,
+      ),
     );
   }
 
@@ -165,7 +172,7 @@ class _HomePageState extends State<HomePage> {
     return Text(
       formattedString,
       style: const TextStyle(fontSize: 24.0),
-      textAlign: TextAlign.center,
+      textAlign: TextAlign.left,
     );
   }
 

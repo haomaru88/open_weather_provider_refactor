@@ -28,6 +28,7 @@ class _SearchPageState extends State<SearchPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // backgroundColor: Colors.blueGrey.shade50,
       appBar: AppBar(
         title: const Text('Search'),
       ),
@@ -40,16 +41,16 @@ class _SearchPageState extends State<SearchPage> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 30.0),
               child: TextFormField(
+                keyboardType: TextInputType.text,
                 autofocus: true,
                 style: const TextStyle(fontSize: 18.0),
                 decoration: InputDecoration(
                   labelText: 'City name',
-                  labelStyle: TextStyle(color: Colors.blue.withOpacity(0.8)),
+                  labelStyle: TextStyle(color: Colors.black87),
                   hintText: 'more than 2 characters',
-                  hintStyle: TextStyle(color: Colors.grey.withOpacity(0.5)),
+                  hintStyle: TextStyle(color: Colors.grey.withOpacity(0.7)),
                   prefixIcon: Icon(Icons.search),
                   border: OutlineInputBorder(
-                    // borderSide: BorderSide(color: Colors.black, width: 10.0, style: BorderStyle.solid),
                     borderRadius: BorderRadius.circular(10),
                   ),
                 ),
@@ -64,8 +65,22 @@ class _SearchPageState extends State<SearchPage> {
                 },
               ),
             ),
-            const SizedBox(height: 20.0),
+            const SizedBox(height: 30.0),
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                padding: EdgeInsets.symmetric(
+                  horizontal: 20,
+                  vertical: 20,
+                ),
+                elevation: 5,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                  side: BorderSide(
+                    color: Colors.black,
+                    width: 0.1,
+                  ),
+                ),
+              ),
               onPressed: _submit,
               child: const Text(
                 "How's weather?",

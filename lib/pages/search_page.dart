@@ -42,11 +42,16 @@ class _SearchPageState extends State<SearchPage> {
               child: TextFormField(
                 autofocus: true,
                 style: const TextStyle(fontSize: 18.0),
-                decoration: const InputDecoration(
+                decoration: InputDecoration(
                   labelText: 'City name',
+                  labelStyle: TextStyle(color: Colors.blue.withOpacity(0.8)),
                   hintText: 'more than 2 characters',
+                  hintStyle: TextStyle(color: Colors.grey.withOpacity(0.5)),
                   prefixIcon: Icon(Icons.search),
-                  border: OutlineInputBorder(),
+                  border: OutlineInputBorder(
+                    // borderSide: BorderSide(color: Colors.black, width: 10.0, style: BorderStyle.solid),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
                 ),
                 validator: (String? input) {
                   if (input == null || input.trim().length < 2) {
